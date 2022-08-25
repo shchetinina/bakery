@@ -1,7 +1,6 @@
 package ru.neoflex.bakery.rest.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import ru.neoflex.bakery.model.Pie;
@@ -14,9 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PieController implements PieApi {
 
-    @Autowired
     private final PieService pieService;
-
 
     @Override
     public ResponseEntity<List<Pie>> findAll() {
