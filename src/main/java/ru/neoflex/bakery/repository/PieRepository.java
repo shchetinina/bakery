@@ -8,7 +8,5 @@ import java.util.List;
 
 @Repository
 public interface PieRepository extends JpaRepository<Pie, Long> {
-
-    @Override
     List<Pie> findAll();
 }
