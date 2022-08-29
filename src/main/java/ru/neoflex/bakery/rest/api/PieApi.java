@@ -15,7 +15,7 @@ import ru.neoflex.bakery.dto.PieDtoView;
 import java.util.List;
 
 @RequestMapping("/api/v1/pies")
-@Tag(name = "PieController", description = "Пользовательское представление пирожка")
+@Tag(name = "PieController", description = "Позволяет управлять информацией о пирожках")
 public interface PieApi {
 
     @ApiResponses(value = {
