@@ -5,14 +5,10 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
 import ru.neoflex.bakery.dto.PieDtoView;
 import ru.neoflex.bakery.mapper.PieRecipeMapper;
-import ru.neoflex.bakery.model.Pie;
-import ru.neoflex.bakery.model.Recipe;
-import ru.neoflex.bakery.repository.PieRepository;
-import ru.neoflex.bakery.repository.RecipeRepository;
-
+import ru.neoflex.bakery.model.*;
+import ru.neoflex.bakery.repository.*;
 import javax.persistence.EntityNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor

@@ -1,31 +1,30 @@
 package ru.neoflex.bakery.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
+
 @Getter
 @Setter
+@Schema(description = "Пользовательское представление пирожка")
 public class PieDtoView {
 
+    @NotNull
+    @Schema(description = "Наименование")
     private String naming;
 
-    private double cost;
+    @NotNull
+    @Schema(description = "Стоимость за 1 шт.")
+    private Double cost;
 
-    private int numberOfCalories;
+    @Schema(description = "Количество калорий в 1 ")
+    private Integer numberOfCalories;
 
-    private int benefit;
+    @Schema(description = "Полезность")
+    private Integer benefit;
 
-    //time for preparing
-    private int tfp;
-
-    @Override
-    public String toString() {
-        return "PieDtoView{" +
-                "naming='" + naming + '\'' +
-                ", cost=" + cost +
-                ", numberOfCalories=" + numberOfCalories +
-                ", benefit=" + benefit +
-                ", tfp=" + tfp +
-                '}';
-    }
+    @Schema(description = "Время приготовления")
+    private Integer tfp;
 }
