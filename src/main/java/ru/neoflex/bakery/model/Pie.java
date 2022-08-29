@@ -17,18 +17,8 @@ public class Pie {
     private String name;
 
     @Column(name = "amount")
-    private Integer amount;
+    private int amount;
 
     @Column(name = "price")
-    private Double price;
-
-    @Override
-    public String toString() {
-        return "Pie{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", amount=" + amount +
-                ", price=" + price +
-                '}';
-    }
+    private double price;
 }
