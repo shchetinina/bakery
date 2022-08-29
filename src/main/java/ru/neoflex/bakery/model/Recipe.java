@@ -15,17 +15,28 @@ import javax.persistence.Table;
 public class Recipe {
     @Id
     @Column(name = "id")
-    private long id;
+    private Long id;
 
     @Column(name = "description")
     private String description;
 
     @Column(name = "calories")
-    private int calories;
+    private Integer calories;
 
     @Column(name = "usefulness")
-    private int usefulness;
+    private Integer usefulness;
 
     @Column(name = "ttm")
-    private int ttm;
+    private Integer ttm;
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", calories=" + calories +
+                ", usefulness=" + usefulness +
+                ", ttm=" + ttm +
+                '}';
+    }
 }
