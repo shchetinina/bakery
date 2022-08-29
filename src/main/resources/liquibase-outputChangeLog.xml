@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="vshchetinina (generated)" id="1661520637024-1">
+        <preConditions onFail="WARN">
+            <sequenceExists sequenceName="pies_id_seq" />
+        </preConditions>
+        <createSequence sequenceName="pies_id_seq"/>
+    </changeSet>
+    <changeSet author="vshchetinina (generated)" id="1661520637024-2">
+        <preConditions onFail="WARN">
+            <sequenceExists sequenceName="recipes_id_seq" />
+        </preConditions>
+        <createSequence sequenceName="recipes_id_seq"/>
+    </changeSet>
+    <changeSet author="vshchetinina (generated)" id="1661520637024-3">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="pies"/>
+            </not>
+        </preConditions>
+        <createTable tableName="pies">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="pies_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="amount" type="numeric">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="numeric">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="vshchetinina (generated)" id="1661520637024-4">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="recipes"/>
+            </not>
+        </preConditions>
+        <createTable tableName="recipes">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="recipes_pkey"/>
+            </column>
+            <column name="description" type="VARCHAR(2147483647)"/>
+            <column name="calories" type="numeric"/>
+            <column name="usefulness" type="numeric"/>
+            <column name="ttm" type="numeric"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="vshchetinina (generated)" id="1661520637024-5">
+        <preConditions onFail="WARN">
+            <foreignKeyConstraintExists foreignKeyName="recipes_id_fkey" />
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="recipes" constraintName="recipes_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="pies"/>
+    </changeSet>
+</databaseChangeLog>
